@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+.git
+.venv
+**/node_modules
+api/dist
+*.log
+*.tgz
+*.key
+*.pem
+*.ppk
+*.dump
+*.tar
+*.tar.gz
+*.tar.gpg
+snapshot

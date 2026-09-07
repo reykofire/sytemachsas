@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — HardSystem</title>
+  <meta name="description" content="Catálogo de equipos, repuestos, redes y soluciones informáticas HardSystem.">
+  <link rel="icon" type="image/png" href="Logo/logoHS01.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260831-4">
+  <script src="js/data.js?v=20260830-2" defer></script>
+  <script src="js/ui.js?v=20260831-3" defer></script>
+  <script src="js/api.js?v=20260831-1" defer></script>
+  <script src="js/cart.js?v=20260831-2" defer></script>
+  <script src="js/pages.js?v=20260831-8" defer></script>
+</head>
+<body data-page="catalogo">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Inicio</a> / <span>Catálogo</span></div>
+      <h1>Catálogo de productos y repuestos</h1>
+      <p>Equipos, componentes, redes y software con disponibilidad en tiempo real y garantía HardSystem.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="search-input">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="catalogSearch" placeholder="Buscar producto o repuesto…" aria-label="Buscar en el catálogo">
+        </div>
+        <div id="catalogFilters" style="display:flex;gap:10px;flex-wrap:wrap"></div>
+      </div>
+      <p class="text-muted mb-3" id="catalogCount" style="font-size:.88rem"></p>
+      <div class="grid grid--4" id="catalogGrid"></div>
+    </div>
+  </section>
+
+</body>
+</html>

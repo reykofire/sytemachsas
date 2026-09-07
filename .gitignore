@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.venv/
+**/node_modules/
+api/dist/
+*.log
+*.key
+*.pem
+*.ppk
+*.dump
+*.tar
+*.tar.gz
+*.tar.gpg
+snapshot/
+__pycache__/

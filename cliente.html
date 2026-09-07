@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portal — Cliente HardSystem</title>
+  <link rel="icon" type="image/png" href="Logo/logoHS01.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260831-4">
+  <script src="js/data.js" defer></script>
+  <script src="js/ui.js?v=20260831-3" defer></script>
+  <script src="js/api.js?v=20260831-1" defer></script>
+  <script src="js/cart.js?v=20260831-2" defer></script>
+  <script src="js/pages.js?v=20260831-8" defer></script>
+</head>
+<body data-page="cliente">
+
+  <section class="page-hero" style="padding:52px 0">
+    <div class="container flex-between">
+      <div>
+        <div class="breadcrumb"><a href="index.html">Inicio</a> / <a href="portal.html">Portal de Soporte</a> / <span>Cliente</span></div>
+        <h1>Hola, Comercial Andina</h1>
+        <p>Bienvenido a tu portal. Aquí ves tus incidencias, equipos registrados e historial de servicios.</p>
+      </div>
+      <span class="chip chip--nuevo" style="font-size:.8rem">Sesión demo — sin autenticación</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stat-cards" id="clientStats"></div>
+
+      <div class="portal-tabs" id="clientTabs">
+        <button class="is-active" data-tab="tickets">Mis incidencias</button>
+        <button data-tab="equipos">Mis equipos</button>
+        <button data-tab="historial">Historial</button>
+      </div>
+
+      <div id="clientPanel-tickets">
+        <div class="card panel">
+          <div class="panel-head">
+            <h2>Incidencias y servicios</h2>
+            <span class="text-muted" style="font-size:.85rem">Haz clic en un ticket para ver el detalle</span>
+          </div>
+          <div id="clientTickets"></div>
+        </div>
+      </div>
+
+      <div id="clientPanel-equipos" class="hidden">
+        <div class="grid grid--2" id="clientDevices"></div>
+      </div>
+
+      <div id="clientPanel-historial" class="hidden">
+        <div class="card panel" style="max-width:720px">
+          <div class="panel-head"><h2>Historial de actividad</h2></div>
+          <div id="clientHistory"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

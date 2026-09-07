@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=portal.html">
+  <title>Portal de Soporte — HardSystem</title>
+  <meta name="description" content="Portal de soporte técnico HardSystem: registra incidencias y da seguimiento a tus servicios.">
+  <link rel="icon" type="image/png" href="Logo/logoHS01.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260831-4">
+  <script src="js/data.js" defer></script>
+  <script src="js/ui.js?v=20260831-3" defer></script>
+  <script src="js/api.js?v=20260831-1" defer></script>
+  <script src="js/cart.js?v=20260831-2" defer></script>
+  <script src="js/pages.js?v=20260831-8" defer></script>
+  <meta http-equiv="refresh" content="0; url=portal.html">
+</head>
+<body data-page="soporte">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Inicio</a> / <span>Portal de Soporte</span></div>
+      <h1>Portal de soporte técnico</h1>
+      <p>Registra incidencias, da seguimiento en tiempo real y consulta el historial de tus equipos con acceso seguro.</p>
+      <div class="hero-cta mt-3">
+        <a href="portal.html" class="btn btn--primary">Ingresar al helpdesk</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:44px;align-items:start" id="supportGrid">
+        <div class="card panel">
+          <div class="panel-head"><h2>Registrar una incidencia</h2></div>
+          <form id="supportForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="supName">Nombre</label>
+                <input type="text" id="supName" placeholder="Tu nombre" required>
+              </div>
+              <div class="field">
+                <label for="supEmail">Correo</label>
+                <input type="email" id="supEmail" placeholder="tucorreo@ejemplo.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="supDevice">Equipo afectado</label>
+                <input type="text" id="supDevice" placeholder="Ej. HP ProBook 440" required>
+              </div>
+              <div class="field">
+                <label for="supPriority">Prioridad percibida</label>
+                <select id="supPriority">
+                  <option value="baja">Baja — puedo trabajar con normalidad</option>
+                  <option value="media" selected>Media — afecta mi trabajo parcialmente</option>
+                  <option value="alta">Alta — no puedo trabajar</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="supDesc">Describe el problema</label>
+              <textarea id="supDesc" placeholder="Incluye mensajes de error, cuándo comenzó y qué intentaste…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Continuar al helpdesk</button>
+            <p class="summary-note">Por seguridad, debes iniciar sesión antes de registrar y consultar incidencias.</p>
+          </form>
+        </div>
+
+        <div>
+          <div class="card panel mb-3">
+            <div class="panel-head"><h3>Estados de tu ticket</h3></div>
+            <div style="display:grid;gap:12px;font-size:.9rem">
+              <div class="flex-between"><span class="chip chip--nuevo">Nuevo</span><span class="text-muted">Recibido, pendiente de asignación</span></div>
+              <div class="flex-between"><span class="chip chip--progreso">En progreso</span><span class="text-muted">Un técnico trabaja en ello</span></div>
+              <div class="flex-between"><span class="chip chip--pendiente">Pendiente</span><span class="text-muted">A la espera de repuesto o aprobación</span></div>
+              <div class="flex-between"><span class="chip chip--resuelto">Resuelto</span><span class="text-muted">Solucionado, pendiente de entrega</span></div>
+              <div class="flex-between"><span class="chip chip--cerrado">Cerrado</span><span class="text-muted">Servicio entregado y archivado</span></div>
+            </div>
+          </div>
+          <div class="card panel brand-surface" style="background:linear-gradient(150deg,var(--hs-carbon-800),var(--hs-carbon-600));border:none;color:#ecebef">
+            <h3 style="color:#fff;margin-bottom:8px">¿Emergencia empresarial?</h3>
+            <p style="font-size:.9rem;color:#b5b5b5">Clientes con plan de soporte cuentan con línea prioritaria y atención remota inmediata.</p>
+            <p style="font-family:var(--hs-font-head);font-weight:700;color:var(--hs-red-400);font-size:1.2rem;margin-top:10px">+57 605 385 4820 · ext. 9</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

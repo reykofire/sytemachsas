@@ -1,0 +1,159 @@
+name: systemach
+
+services:
+  web:
+    image: systemach-web:latest
+    build:
+      context: .
+      dockerfile: infra/web.Dockerfile
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "${HTTP_PORT:-8081}:8080"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - frontend
+      - backend
+
+  api:
+    image: systemach-api:latest
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-hardsystem}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-hardsystem}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      ATTACHMENTS_PATH: /app/storage
+      SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_SECURE: ${SMTP_SECURE:-true}
+      SMTP_USER: ${SMTP_USER:-ziiihelpdesk@gmail.com}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-HardSystem <ziiihelpdesk@gmail.com>}
+      PORTAL_URL: ${PORTAL_URL:-http://192.168.100.141:8081/portal.html}
+      PAYPAL_MODE: ${PAYPAL_MODE:-sandbox}
+      PAYPAL_CLIENT_ID: ${PAYPAL_CLIENT_ID:-}
+      PAYPAL_CLIENT_SECRET: ${PAYPAL_CLIENT_SECRET:-}
+      PAYPAL_COP_PER_USD: ${PAYPAL_COP_PER_USD:-4000}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - attachments_data:/app/storage
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health/ready').then(r => { if (!r.ok) process.exit(1) }).catch(() => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - frontend
+      - backend
+
+  postgres:
+    build:
+      context: .
+      dockerfile: infra/postgres.Dockerfile
+    image: systemach-postgres:17
+    user: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hardsystem}
+      POSTGRES_USER: ${POSTGRES_USER:-hardsystem}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      TZ: America/Bogota
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    networks:
+      - backend
+
+  mailpit:
+    image: axllent/mailpit:v1.27
+    restart: unless-stopped
+    profiles: ["development"]
+    environment:
+      MP_DATABASE: /data/mailpit.db
+      MP_MAX_MESSAGES: 5000
+    ports:
+      - "127.0.0.1:${MAILPIT_HTTP_PORT:-8026}:8025"
+    volumes:
+      - mailpit_data:/data
+    networks:
+      - frontend
+      - backend
+
+  backup:
+    build:
+      context: .
+      dockerfile: infra/postgres.Dockerfile
+    image: systemach-postgres:17
+    user: postgres
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      PGHOST: postgres
+      PGDATABASE: ${POSTGRES_DB:-hardsystem}
+      PGUSER: ${POSTGRES_USER:-hardsystem}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      TZ: America/Bogota
+    command: ["sh", "/usr/local/bin/backup-loop.sh"]
+    healthcheck:
+      test: ["CMD-SHELL", "test -s /backups/.last-success && find /backups/.last-success -mmin -1500 | grep -q ."]
+      interval: 5m
+      timeout: 10s
+      retries: 2
+      start_period: 2m
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - backups_data:/backups
+      - ./infra/backup-loop.sh:/usr/local/bin/backup-loop.sh:ro
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+  attachments_data:
+  mailpit_data:
+  caddy_data:
+  caddy_config:
+  backups_data:
+
+networks:
+  frontend:
+  backend:
+    internal: true

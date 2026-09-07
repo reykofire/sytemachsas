@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helpdesk - HardSystem</title>
+  <link rel="icon" type="image/png" href="Logo/logoHS01.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260831-5">
+  <script src="js/ui.js?v=20260831-3" defer></script>
+  <script src="js/api.js?v=20260831-1" defer></script>
+  <script src="js/cart.js?v=20260831-2" defer></script>
+  <script src="js/portal.js?v=20260831-2" defer></script>
+</head>
+<body data-page="portal">
+  <main class="portal-shell">
+    <section class="portal-login" id="portalLogin">
+      <section class="login-story" aria-label="HardSystem">
+        <a href="index.html" class="login-story__brand"><img src="Logo/logoHS01.png" alt="HardSystem"></a>
+        <div class="login-story__copy">
+          <p class="login-kicker">Servicio técnico</p>
+          <h1>Todo lo que necesitas, en un solo lugar.</h1>
+          <p class="login-story__lead">Consulta solicitudes, avances, equipos y soluciones de forma clara y sencilla.</p>
+        </div>
+        <div class="login-service-flow" aria-label="Flujo del servicio">
+          <span><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h6"></path></svg></i>Solicitud</span><b></b>
+          <span><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"></circle><path d="m14.5 14.5 5 5M8 10l1.5 1.5L12 9"></path></svg></i>Seguimiento</span><b></b>
+          <span><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg></i>Solución</span>
+        </div>
+      </section>
+      <section class="login-form-panel">
+        <form class="login-form" id="loginForm">
+          <p class="login-access-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v5c0 5.2 3.2 8.7 8 10 4.8-1.3 8-4.8 8-10V6l-8-3Z"></path><path d="m9 12 2 2 4-5"></path></svg>Acceso al portal</p>
+          <h2>Bienvenido de nuevo</h2>
+          <p class="login-form-intro">Ingresa tus credenciales para consultar y gestionar tus solicitudes.</p>
+          <div class="field"><label for="loginEmail">Correo electrónico</label><div class="login-input-wrap"><svg class="login-input-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg><input class="login-input" id="loginEmail" type="email" autocomplete="username" placeholder="nombre@empresa.com" required></div></div>
+          <div class="field"><label for="loginPassword">Contraseña</label><div class="login-input-wrap"><svg class="login-input-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"></path></svg><input class="login-input" id="loginPassword" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" required><button class="reveal-password" id="revealPassword" type="button" aria-label="Mostrar contraseña"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.5"></circle></svg></button></div></div>
+          <p class="form-error hidden" id="loginError"></p>
+          <button class="login-submit" type="submit">Ingresar</button>
+          <p class="login-security-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>Acceso seguro para clientes y equipo técnico</p>
+        </form>
+      </section>
+    </section>
+
+    <section class="hidden" id="portalApp">
+      <header class="portal-topbar">
+        <a href="index.html" class="brand"><img src="Logo/logoHS01.png" alt="HardSystem"></a>
+        <div class="portal-user"><div><strong id="portalUserName"></strong><span id="portalUserRole"></span></div><button class="btn btn--ghost btn--sm" id="logoutBtn">Cerrar sesión</button></div>
+      </header>
+      <div class="portal-workspace">
+        <aside class="portal-sidebar" id="portalNav">
+          <div class="portal-nav-label">Operación</div>
+          <button class="is-active" data-view="dashboard"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>Resumen</button>
+          <button data-view="tickets"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h6"></path></svg></span>Solicitudes</button>
+          <button data-view="reports"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"></path><path d="M14 3v4h4M9 12h6M9 16h6"></path></svg></span>Reportes</button>
+          <button data-view="assets"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg></span>Equipos</button>
+          <button data-view="orders"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4z"></path><path d="M8 7V4h8v3M4 12h16"></path></svg></span>Compras</button>
+          <button data-view="contacts"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c.6-5 3.3-7 8-7s7.4 2 8 7"></path></svg></span>Contactos</button>
+          <button class="admin-only hidden" data-view="organizations"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V5l7-3 7 3v16M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1"></path></svg></span>Empresas</button>
+          <button class="admin-only hidden" data-view="users"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="10" r="2"></circle><path d="M3 20c.5-4 2.5-6 6-6s5.5 2 6 6M15 15c3 0 5 1.5 5.5 5"></path></svg></span>Usuarios</button>
+          <button class="admin-only hidden" data-view="commerce"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h5"></path></svg></span>Catálogo y promociones</button>
+        </aside>
+        <div class="portal-content">
+          <div class="portal-title-row"><div><span class="eyebrow" id="viewKicker">Centro de servicio</span><h1 id="viewTitle">Resumen</h1><p class="portal-subtitle" id="viewSubtitle"></p></div><div class="portal-actions"><label class="period-control hidden" id="dashboardPeriodControl" for="dashboardPeriod">Periodo<select id="dashboardPeriod"><option value="today">Hoy</option><option value="7d" selected>Últimos 7 días</option><option value="30d">Últimos 30 días</option><option value="custom">Rango personalizado</option></select></label><div class="custom-period hidden" id="customPeriod"><input id="dashboardStart" type="date" aria-label="Fecha inicial"><input id="dashboardEnd" type="date" aria-label="Fecha final"></div><button class="btn btn--primary" id="newTicketBtn">Nueva solicitud</button><button class="btn btn--primary hidden" id="manageRecordBtn">Agregar registro</button></div></div>
+          <div class="portal-stats" id="portalStats"></div>
+          <div class="card panel" id="portalView"><div class="portal-loading">Cargando...</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="portal-dialog" id="ticketDialog">
+    <form method="dialog" class="card panel" id="ticketForm">
+      <div class="panel-head ticket-dialog-head"><div><span class="eyebrow">Registro operativo</span><h2>Nueva incidencia</h2></div><button class="dialog-close" type="button" data-close-dialog="ticketDialog" aria-label="Cerrar">&times;</button></div>
+      <section class="ticket-context" aria-labelledby="ticketContextTitle">
+        <div class="ticket-context__intro"><span class="context-marker">01</span><div><h3 id="ticketContextTitle">¿Quién reporta la incidencia?</h3><p>Selecciona un cliente estándar antes de elegir el equipo afectado.</p></div></div>
+        <div class="field ticket-client-field"><label for="ticketClientSearch">Cliente estándar</label><input id="ticketClientSearch" type="search" placeholder="Buscar por nombre, correo, teléfono o empresa" autocomplete="off"><select id="ticketClient" aria-label="Cliente estándar"><option value="">Seleccione un cliente</option></select><span class="field-help" id="ticketClientHelp">Los equipos se mostrarán solo si este cliente tiene inventario registrado.</span></div>
+        <div class="ticket-client-current hidden" id="ticketClientCurrent"><span>Cliente actual</span><strong id="ticketClientCurrentName"></strong></div>
+        <div class="ticket-quick-actions"><span class="ticket-asset-count" id="ticketAssetCount">Seleccione un cliente</span></div>
+      </section>
+      <section class="ticket-details" aria-labelledby="ticketDetailsTitle">
+        <div class="ticket-section-label"><span class="context-marker context-marker--muted">02</span><h3 id="ticketDetailsTitle">Detalle de la solicitud</h3></div>
+        <div class="field"><label for="ticketSubject">Asunto</label><input id="ticketSubject" required minlength="5" maxlength="180" placeholder="Ej. El portátil no inicia sesión"></div>
+      <div class="form-row">
+        <div class="field"><label for="ticketPriority">Prioridad</label><select id="ticketPriority"><option value="low">Baja</option><option value="medium" selected>Media</option><option value="high">Alta</option><option value="urgent">Urgente</option></select></div>
+        <div class="field"><label for="ticketAsset">Equipo afectado <span class="optional-label">opcional</span></label><select id="ticketAsset" disabled><option value="">Primero seleccione el cliente</option></select></div>
+      </div>
+      <div class="field"><label for="ticketDescription">Descripción</label><textarea id="ticketDescription" required minlength="10" placeholder="Describa qué ocurre, desde cuándo y el impacto en la operación"></textarea></div>
+      </section>
+      <p class="form-error hidden" id="ticketError"></p>
+      <button class="btn btn--primary btn--block" type="submit" value="default">Registrar incidencia</button>
+    </form>
+  </dialog>
+  <dialog class="portal-dialog ticket-success-dialog" id="ticketSuccessDialog">
+    <section class="card panel ticket-success-panel">
+      <div class="ticket-success-mark" aria-hidden="true">✓</div>
+      <span class="eyebrow">Registro confirmado</span>
+      <h2>Tu incidencia fue creada</h2>
+      <p id="ticketSuccessMessage">Tu solicitud quedó registrada y pronto será atendida por nuestro equipo.</p>
+      <div class="ticket-success-code"><span>Número de ticket</span><strong id="ticketSuccessCode">TK-00000</strong></div>
+      <p class="ticket-success-email" id="ticketSuccessEmail"></p>
+      <button class="btn btn--primary btn--block" type="button" data-close-dialog="ticketSuccessDialog">Entendido</button>
+    </section>
+  </dialog>
+  <dialog class="portal-dialog" id="recordDialog">
+    <form method="dialog" class="card panel" id="recordForm">
+      <div class="panel-head"><h2 id="recordTitle">Agregar registro</h2><button class="dialog-close" type="button" data-close-dialog="recordDialog" aria-label="Cerrar">&times;</button></div>
+      <input id="recordId" type="hidden">
+      <div id="recordFields"></div>
+      <p class="form-error hidden" id="recordError"></p>
+      <button class="btn btn--primary btn--block" type="submit" value="default">Guardar</button>
+    </form>
+  </dialog>
+  <dialog class="portal-dialog" id="organizationEditDialog">
+    <form class="card panel" id="organizationEditForm">
+      <div class="panel-head"><h2>Editar empresa</h2><button class="dialog-close" type="button" data-close-dialog="organizationEditDialog" aria-label="Cerrar">&times;</button></div>
+      <input id="editOrganizationId" type="hidden">
+      <div class="form-row"><div class="field"><label for="editOrganizationName">Razón social</label><input id="editOrganizationName" required minlength="2" maxlength="160"></div><div class="field"><label for="editOrganizationTaxId">NIT</label><input id="editOrganizationTaxId" maxlength="40"></div></div>
+      <div class="form-row"><div class="field"><label for="editOrganizationEmail">Correo</label><input id="editOrganizationEmail" type="email"></div><div class="field"><label for="editOrganizationPhone">Teléfono</label><input id="editOrganizationPhone" maxlength="40"></div></div>
+      <div class="form-row"><div class="field"><label for="editOrganizationAddress">Dirección</label><input id="editOrganizationAddress" maxlength="240"></div><div class="field"><label for="editOrganizationCity">Ciudad</label><input id="editOrganizationCity" required minlength="2" maxlength="100"></div></div>
+      <div class="field"><label for="editOrganizationStatus">Estado</label><select id="editOrganizationStatus"><option value="true">Activa</option><option value="false">Inactiva</option></select></div>
+      <p class="form-error hidden" id="editOrganizationError"></p>
+      <button class="btn btn--primary btn--block" type="submit">Guardar cambios</button>
+    </form>
+  </dialog>
+  <dialog class="portal-dialog" id="closureDialog">
+    <form class="card panel" id="closureForm">
+      <div class="panel-head"><h2>Soporte de cierre</h2><button class="dialog-close" type="button" data-close-dialog="closureDialog" aria-label="Cerrar">&times;</button></div>
+      <input id="closureTicketId" type="hidden">
+      <div class="field"><label for="closureCause">Causa común</label><select id="closureCause" required><option value="">Seleccione una causa</option><option value="hardware_failure">Falla de hardware</option><option value="software_issue">Problema de software</option><option value="configuration">Configuración</option><option value="user_guidance">Orientación al usuario</option><option value="preventive_maintenance">Mantenimiento preventivo</option><option value="parts_replacement">Reemplazo de repuesto</option><option value="network_issue">Problema de red</option><option value="security_incident">Incidente de seguridad</option><option value="other">Otra causa</option></select></div>
+      <div class="field"><label for="closureNote">Soporte escrito del cierre</label><textarea id="closureNote" required minlength="31" maxlength="10000" placeholder="Describa diagnóstico, solución aplicada y validación final"></textarea><span class="field-help">Mínimo 31 caracteres.</span></div>
+      <div class="field"><label for="closureImage">Evidencia visual (opcional)</label><input id="closureImage" type="file" accept="image/jpeg,image/png,image/webp"></div>
+      <p class="form-error hidden" id="closureError"></p>
+      <button class="btn btn--primary btn--block" type="submit">Cerrar incidencia</button>
+    </form>
+  </dialog>
+  <dialog class="portal-dialog" id="reopenDialog">
+    <form class="card panel" id="reopenForm">
+      <div class="panel-head"><h2>Soporte de reapertura</h2><button class="dialog-close" type="button" data-close-dialog="reopenDialog" aria-label="Cerrar">&times;</button></div>
+      <input id="reopenTicketId" type="hidden">
+      <div class="field"><label for="reopenCause">Motivo de reapertura</label><select id="reopenCause" required><option value="">Seleccione un motivo</option><option value="customer_request">Solicitud del cliente</option><option value="recurrence">Reincidencia del problema</option><option value="incomplete_solution">Solución incompleta</option><option value="new_evidence">Nueva evidencia</option><option value="other">Otra causa</option></select></div>
+      <div class="field"><label for="reopenNote">Soporte escrito de la reapertura</label><textarea id="reopenNote" required minlength="31" maxlength="10000" placeholder="Describa qué cambió, por qué debe continuar la atención y la validación pendiente"></textarea><span class="field-help">Mínimo 31 caracteres.</span></div>
+      <p class="form-error hidden" id="reopenError"></p>
+      <button class="btn btn--primary btn--block" type="submit">Reabrir incidencia</button>
+    </form>
+  </dialog>
+  <dialog class="portal-dialog" id="userEditDialog">
+    <form class="card panel" id="userEditForm">
+      <div class="panel-head"><h2>Editar usuario</h2><button class="dialog-close" type="button" data-close-dialog="userEditDialog" aria-label="Cerrar">&times;</button></div>
+      <input id="editUserId" type="hidden">
+      <div class="form-row"><div class="field"><label for="editUserName">Nombre completo</label><input id="editUserName" required minlength="2" maxlength="160"></div><div class="field"><label for="editUserEmail">Correo</label><input id="editUserEmail" type="email" required></div></div>
+      <div class="form-row"><div class="field"><label for="editUserPhone">Teléfono</label><input id="editUserPhone" maxlength="40"></div><div class="field"><label for="editUserOrganization">Empresa</label><select id="editUserOrganization" required></select></div></div>
+      <div class="form-row"><div class="field"><label for="editUserRole">Rol</label><select id="editUserRole" required><option value="client">Cliente</option><option value="agent">Técnico</option><option value="supervisor">Supervisor</option><option value="admin">Administrador</option></select></div><div class="field"><label for="editUserPassword">Nueva contraseña</label><input id="editUserPassword" type="password" minlength="12" maxlength="200" autocomplete="new-password"><span class="field-help">Déjela vacía para conservar la actual.</span></div></div>
+      <p class="form-error hidden" id="editUserError"></p>
+      <button class="btn btn--primary btn--block" type="submit">Guardar cambios</button>
+    </form>
+  </dialog>
+  <dialog class="portal-dialog" id="userStatusDialog">
+    <form class="card panel" id="userStatusForm">
+      <div class="panel-head"><div><h2>Estado de la cuenta</h2><p class="text-muted" id="statusUserName"></p></div><button class="dialog-close" type="button" data-close-dialog="userStatusDialog" aria-label="Cerrar">&times;</button></div>
+      <input id="statusUserId" type="hidden">
+      <div class="field"><label for="userAccountStatus">Acción</label><select id="userAccountStatus" required><option value="active">Reactivar cuenta</option><option value="suspended">Suspender temporalmente</option><option value="disabled">Inhabilitar definitivamente</option></select></div>
+      <div class="field hidden" id="suspensionDateField"><label for="userSuspendedUntil">Suspender hasta</label><input id="userSuspendedUntil" type="datetime-local"></div>
+      <div class="field hidden" id="statusReasonField"><label for="userStatusReason">Motivo</label><textarea id="userStatusReason" minlength="5" maxlength="500" placeholder="Indique por qué se restringe el acceso"></textarea></div>
+      <div class="status-warning hidden" id="permanentStatusWarning">La inhabilitación definitiva bloquea el acceso de inmediato. El historial del usuario se conserva.</div>
+      <p class="form-error hidden" id="userStatusError"></p>
+      <button class="btn btn--primary btn--block" type="submit">Aplicar estado</button>
+    </form>
+  </dialog>
+</body>
+</html>

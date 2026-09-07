@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HardSystem — Soporte Técnico y Soluciones Tecnológicas</title>
+  <meta name="description" content="HardSystem: reparación, mantenimiento, diagnóstico e instalación de equipos tecnológicos. Catálogo de productos y portal de soporte técnico.">
+  <link rel="icon" type="image/png" href="Logo/logoHS01.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260831-4">
+  <script src="js/data.js?v=20260830-2" defer></script>
+  <script src="js/ui.js?v=20260831-3" defer></script>
+  <script src="js/api.js?v=20260831-1" defer></script>
+  <script src="js/cart.js?v=20260831-2" defer></script>
+  <script src="js/pages.js?v=20260831-8" defer></script>
+</head>
+<body data-page="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-carousel" data-hero-carousel aria-label="Presentación de HardSystem">
+      <div class="hero-slide is-active" data-hero-slide>
+        <div class="container hero-inner">
+          <div>
+            <span class="hero-badge"><span class="dot"></span> Centro operativo en Barranquilla · Respuesta en 24 h</span>
+            <h1>Tecnología que <span class="accent">funciona</span>, respaldo que se nota.</h1>
+            <p class="lead">Reparación, mantenimiento y administración de equipos tecnológicos para hogares y empresas de Barranquilla y el Caribe colombiano. Diagnóstico claro, repuestos garantizados y seguimiento en línea.</p>
+            <div class="hero-cta">
+              <a href="portal.html" class="btn btn--primary">Solicitar soporte técnico</a>
+              <a href="catalogo.html" class="btn btn--ghost-light">Ver catálogo de productos</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat"><strong>+1,200</strong><span>Equipos atendidos</span></div>
+              <div class="stat"><strong>98%</strong><span>Clientes satisfechos</span></div>
+              <div class="stat"><strong>24 h</strong><span>Respuesta media</span></div>
+              <div class="stat"><strong>6 m</strong><span>Garantía de servicio</span></div>
+            </div>
+          </div>
+          <div class="hero-visual"><div class="hero-hex"><img src="Logo/logoHS01.png" alt="HardSystem"></div></div>
+        </div>
+      </div>
+      <div class="hero-slide" data-hero-slide>
+        <div class="container hero-inner">
+          <div>
+            <span class="hero-badge"><span class="dot"></span> Promoción para empresas · Vigencia limitada</span>
+            <h1>Diagnóstico <span class="accent">prioritario</span> sin costo.</h1>
+            <p class="lead">Agenda la revisión de tus equipos y recibe una evaluación clara para planear mantenimiento, renovaciones y mejoras sin sorpresas.</p>
+            <div class="hero-cta"><a href="contacto.html?servicio=diagnostico" class="btn btn--primary">Agendar diagnóstico</a><a href="servicios.html" class="btn btn--ghost-light">Conocer servicios</a></div>
+            <div class="hero-offer-note"><strong>Incluye:</strong> revisión inicial, recomendaciones y cotización detallada.</div>
+          </div>
+          <div class="hero-visual hero-visual--offer"><img class="hero-product-image hero-product-image--diagnostic" src="slide/diagnostico.png" alt="Diagnóstico técnico de un computador de escritorio"></div>
+        </div>
+      </div>
+      <div class="hero-slide" data-hero-slide>
+        <div class="container hero-inner">
+          <div>
+            <span class="hero-badge"><span class="dot"></span> Oferta de la semana · Componentes seleccionados</span>
+            <h1>Más velocidad para tu <span class="accent">equipo</span>.</h1>
+            <p class="lead">Actualiza con unidades SSD y memoria RAM seleccionadas para mejorar el arranque, la respuesta y la productividad de tu computador.</p>
+            <div class="hero-cta"><a href="catalogo.html" class="btn btn--primary">Ver componentes</a><a href="contacto.html" class="btn btn--ghost-light">Pedir asesoría</a></div>
+            <div class="hero-offer-note"><strong>Oferta:</strong> instalación técnica con precio preferencial al comprar tu componente.</div>
+          </div>
+          <div class="hero-visual hero-visual--offer"><img class="hero-product-image hero-product-image--memory" src="slide/memorias.png" alt="Módulos de memoria RAM y unidad SSD NVMe"></div>
+        </div>
+      </div>
+      <div class="hero-controls" aria-label="Controles de la presentación">
+        <button type="button" class="hero-control" data-hero-prev aria-label="Slide anterior">‹</button>
+        <div class="hero-dots" role="tablist" aria-label="Slides">
+          <button type="button" class="hero-dot is-active" data-hero-dot="0" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+          <button type="button" class="hero-dot" data-hero-dot="1" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+          <button type="button" class="hero-dot" data-hero-dot="2" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+        </div>
+        <button type="button" class="hero-control" data-hero-next aria-label="Siguiente slide">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Servicios técnicos</span>
+        <h2 class="section-title">Soluciones integrales para tu tecnología</h2>
+        <p class="section-sub">Del diagnóstico a la administración completa de tu infraestructura: un solo equipo experto para todo.</p>
+      </div>
+      <div class="grid grid--4" id="homeServices"></div>
+      <div style="text-align:center" class="mt-4">
+        <a href="servicios.html" class="btn btn--dark">Ver todos los servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO TRABAJAMOS -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2 class="section-title">Un proceso transparente de principio a fin</h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="card service-card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8" stroke-width="0"/><text x="12" y="16.5" text-anchor="middle" fill="currentColor" font-size="11" font-weight="800" stroke="none">1</text></svg></div>
+          <h3 style="color:#fff">Registra tu solicitud</h3>
+          <p style="color:#b5b5b5">Crea tu incidencia en el portal o contáctanos. Recibirás un número de ticket al instante.</p>
+        </div>
+        <div class="card service-card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><text x="12" y="16.5" text-anchor="middle" fill="currentColor" font-size="11" font-weight="800" stroke="none">2</text></svg></div>
+          <h3 style="color:#fff">Diagnóstico claro</h3>
+          <p style="color:#b5b5b5">Evaluamos tu equipo y te enviamos un informe con cotización, sin compromiso.</p>
+        </div>
+        <div class="card service-card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><text x="12" y="16.5" text-anchor="middle" fill="currentColor" font-size="11" font-weight="800" stroke="none">3</text></svg></div>
+          <h3 style="color:#fff">Reparación garantizada</h3>
+          <p style="color:#b5b5b5">Ejecutamos el servicio con repuestos de calidad y seguimiento visible en tu portal.</p>
+        </div>
+        <div class="card service-card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><text x="12" y="16.5" text-anchor="middle" fill="currentColor" font-size="11" font-weight="800" stroke="none">4</text></svg></div>
+          <h3 style="color:#fff">Entrega y garantía</h3>
+          <p style="color:#b5b5b5">Entregamos con garantía de 6 meses y tu historial queda registrado para futuros servicios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head flex-between" style="max-width:none">
+        <div>
+          <span class="eyebrow">Tienda</span>
+          <h2 class="section-title">Productos y repuestos destacados</h2>
+          <p class="section-sub">Equipos y repuestos con precios en pesos colombianos, entrega local y garantía HardSystem.</p>
+        </div>
+        <a href="catalogo.html" class="btn btn--ghost">Ver catálogo completo</a>
+      </div>
+      <div class="grid grid--4" id="homeProducts"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="section" style="background:#fff;border-top:1px solid var(--hs-line);border-bottom:1px solid var(--hs-line)">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Confianza</span>
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      </div>
+      <div class="grid grid--3" id="homeTestimonials"></div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section section--dark" style="text-align:center">
+    <div class="container">
+      <h2 class="section-title">¿Tu equipo necesita atención profesional?</h2>
+      <p class="section-sub" style="max-width:560px;margin:12px auto 32px">Abre un ticket en nuestro portal de soporte o agenda una visita técnica. Te respondemos en menos de 24 horas.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a href="portal.html" class="btn btn--primary">Abrir portal de soporte</a>
+        <a href="contacto.html" class="btn btn--ghost-light">Contactar al equipo</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

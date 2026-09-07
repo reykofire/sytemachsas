@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consola del Operador — HardSystem</title>
+  <link rel="icon" type="image/png" href="Logo/logoHS01.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260831-4">
+  <script src="js/data.js" defer></script>
+  <script src="js/ui.js?v=20260831-3" defer></script>
+  <script src="js/api.js?v=20260831-1" defer></script>
+  <script src="js/cart.js?v=20260831-2" defer></script>
+  <script src="js/pages.js?v=20260831-8" defer></script>
+</head>
+<body data-page="operador">
+
+  <section class="page-hero" style="padding:52px 0">
+    <div class="container flex-between">
+      <div>
+        <div class="breadcrumb"><a href="index.html">Inicio</a> / <a href="portal.html">Portal de Soporte</a> / <span>Operador</span></div>
+        <h1>Consola del operador</h1>
+        <p>Gestión de incidencias, prioridades, asignaciones e inventario de repuestos.</p>
+      </div>
+      <span class="chip chip--progreso" style="font-size:.8rem">Turno activo — demo</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stat-cards" id="opStats"></div>
+
+      <div class="portal-tabs" id="opTabs">
+        <button class="is-active" data-tab="tickets">Incidencias</button>
+        <button data-tab="inventario">Inventario de repuestos</button>
+      </div>
+
+      <div id="opPanel-tickets">
+        <div class="card panel">
+          <div class="panel-head">
+            <h2>Cola de incidencias</h2>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <select id="opStatusFilter" aria-label="Filtrar por estado" style="padding:9px 14px;border-radius:9px;border:1px solid var(--hs-line);font-family:inherit">
+                <option value="todos">Todos los estados</option>
+                <option value="nuevo">Nuevo</option>
+                <option value="progreso">En progreso</option>
+                <option value="pendiente">Pendiente</option>
+                <option value="resuelto">Resuelto</option>
+                <option value="cerrado">Cerrado</option>
+              </select>
+              <select id="opPriorityFilter" aria-label="Filtrar por prioridad" style="padding:9px 14px;border-radius:9px;border:1px solid var(--hs-line);font-family:inherit">
+                <option value="todas">Todas las prioridades</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Ticket</th><th>Asunto / Cliente</th><th>Prioridad</th><th>Estado</th><th>Asignado a</th><th>Progreso</th></tr></thead>
+              <tbody id="opTicketRows"></tbody>
+            </table>
+          </div>
+          <p class="summary-note">Los cambios de estado y asignación son simulados y se conectarán a la base de datos en la siguiente fase.</p>
+        </div>
+      </div>
+
+      <div id="opPanel-inventario" class="hidden">
+        <div class="card panel">
+          <div class="panel-head">
+            <h2>Inventario de repuestos</h2>
+            <span class="text-muted" style="font-size:.85rem">Alertas automáticas bajo stock mínimo</span>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>SKU</th><th>Repuesto</th><th>Categoría</th><th>Existencias</th><th>Nivel</th></tr></thead>
+              <tbody id="opInventory"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
