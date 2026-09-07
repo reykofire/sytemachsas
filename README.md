@@ -1,5 +1,9 @@
 # Systemach
 
+Acceso principal: **https://ziii.ddns.net/proyectos/systemach/**. Portal: **https://ziii.ddns.net/proyectos/systemach/portal.html**.
+
+El acceso anterior `http://ziii.ddns.net:15061/portal.html` permanece disponible. HardSystem usa `/proyectos/hardsystem/` y conserva el puerto público 15060. Ambos pasan por Nginx; consulta [la configuración DDNS y los puertos internos](docs/NGINX-DDNS.md) antes de modificar el despliegue.
+
 Copia funcional completa de HardSystem, preparada como base para la identidad de Systemach.
 
 - Instancia: http://192.168.100.141:8081
