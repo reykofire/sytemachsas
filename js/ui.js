@@ -132,7 +132,7 @@ function hsRenderFooter() {
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="Logo/logo-systemach.png" alt="Systemach">
-          <p>Soporte técnico y soluciones tecnológicas desde Barranquilla para hogares y empresas del Caribe colombiano.</p>
+          <p>Soporte técnico y soluciones tecnológicas desde Bogotá, Colombia, para hogares y empresas.</p>
         </div>
         <div>
           <h4>Sitio comercial</h4>
@@ -155,15 +155,15 @@ function hsRenderFooter() {
         <div>
           <h4>Contacto</h4>
           <ul class="footer-contact">
-            <li>${hsIcon("pin")} Carrera 53 # 80-67, Alto Prado, Barranquilla, Atlántico</li>
-            <li>${hsIcon("phone")} +57 605 385 4820</li>
-            <li>${hsIcon("mail")} soporte@hardsystem.com</li>
-            <li>${hsIcon("clock")} Lun – Sáb · 8:00 a. m. – 6:00 p. m.</li>
+            <li>${hsIcon("pin")} Calle 2 # 93-27, Kennedy, Primavera, Bogotá, Colombia</li>
+            <li>${hsIcon("phone")} <a href="tel:+573102681145">+57 310 268 1145</a> · <a href="https://wa.me/573102681145" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li>${hsIcon("mail")} <a href="mailto:systemachsas@gmail.com">systemachsas@gmail.com</a></li>
+            <li>${hsIcon("clock")} Lun – Vie: 8:00 a. m. – 5:00 p. m. · Sáb: 8:00 a. m. – 12:00 p. m.</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Systemach — Soluciones Tecnológicas. Barranquilla, Colombia.</span>
+        <span>© 2026 Systemach — Soluciones Tecnológicas. Bogotá, Colombia.</span>
         <span>Precios en pesos colombianos (COP) · Datos simulados.</span>
       </div>
     </div>`;

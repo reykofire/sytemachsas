@@ -331,12 +331,12 @@ function initCarrito() {
       <div class="summary-row"><span>Subtotal de productos</span><span>${hsMoney(subtotal)}</span></div>
       <div class="summary-row"><span>Base gravable</span><span>${hsMoney(taxableBase)}</span></div>
       <div class="summary-row"><span>IVA incluido (19%)</span><span>${hsMoney(vat)}</span></div>
-      <div class="summary-row"><span>Envío local en Barranquilla</span><span>${shipping ? hsMoney(shipping) : "Gratis"}</span></div>
+      <div class="summary-row"><span>Envío local en Bogotá</span><span>${shipping ? hsMoney(shipping) : "Gratis"}</span></div>
       <div class="summary-row total"><span>Total</span><span>${hsMoney(total)}</span></div>
       <button class="btn btn--primary btn--block mt-3" id="checkoutBtn">${hsIcon("check")} ${HS_API.getSessionUser() ? "Pagar con PayPal" : "Ingresar para pagar"}</button>
       <div class="paypal-panel hidden" id="paypalPanel"><div class="paypal-conversion" id="paypalConversion"></div><div id="paypalButtons"></div></div>
       <p class="paypal-status" id="paypalStatus" aria-live="polite"></p>
-      <p class="summary-note">Valores en pesos colombianos (COP). El IVA desglosado ya está incluido en el subtotal de productos; no se suma nuevamente. El envío fuera de Barranquilla y su área metropolitana se cotiza por separado.</p>`;
+      <p class="summary-note">Valores en pesos colombianos (COP). El IVA desglosado ya está incluido en el subtotal de productos; no se suma nuevamente. El envío fuera de Bogotá y su área metropolitana se cotiza por separado.</p>`;
 
     document.getElementById("checkoutBtn").addEventListener("click", startPayPal);
   }

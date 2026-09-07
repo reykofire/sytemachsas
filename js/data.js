@@ -58,6 +58,15 @@ const HS_DATA = {
   ],
 
   services: [
+    { id: "redes-electricas", icon: "plug", title: "Redes eléctricas",
+      desc: "Soluciones de infraestructura eléctrica para proyectos tecnológicos de empresas y hogares.",
+      items: ["Infraestructura tecnológica", "Atención a empresas y hogares"] },
+    { id: "redes-datos", icon: "router", title: "Redes de datos",
+      desc: "Soluciones de conectividad para acompañar la operación y el crecimiento de cada cliente.",
+      items: ["Redes de datos", "Conectividad empresarial y residencial"] },
+    { id: "cctv", icon: "camera", title: "CCTV y seguridad",
+      desc: "Soluciones de videovigilancia como parte de una infraestructura tecnológica integral.",
+      items: ["CCTV", "Seguridad para empresas y hogares"] },
     { id: "reparacion", icon: "wrench", title: "Reparación de equipos",
       desc: "Diagnóstico y reparación de laptops, desktops, impresoras y periféricos con repuestos garantizados.",
       items: ["Cambio de pantallas, teclados y baterías", "Reparación de placas y fuentes", "Recuperación ante daños por líquidos"] },

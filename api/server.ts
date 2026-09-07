@@ -342,7 +342,7 @@ app.get("/api/users", { preHandler: admin }, async () => ({ items: (await pool.q
   u.last_login_at,u.created_at,o.name organization_name,changer.full_name status_changed_by_name
   FROM users u LEFT JOIN organizations o ON o.id=u.organization_id LEFT JOIN users changer ON changer.id=u.status_changed_by ORDER BY u.full_name`)).rows }));
 app.post("/api/organizations", { preHandler: admin }, async (request, reply) => {
-  const body = z.object({ name: z.string().min(2).max(160), taxId: z.string().max(40).nullable().optional(), email: z.string().email().nullable().optional(), phone: z.string().max(40).nullable().optional(), address: z.string().max(240).nullable().optional(), city: z.string().min(2).max(100).default("Barranquilla") }).parse(request.body);
+  const body = z.object({ name: z.string().min(2).max(160), taxId: z.string().max(40).nullable().optional(), email: z.string().email().nullable().optional(), phone: z.string().max(40).nullable().optional(), address: z.string().max(240).nullable().optional(), city: z.string().min(2).max(100).default("Bogotá") }).parse(request.body);
   const result = await pool.query("INSERT INTO organizations(name,tax_id,email,phone,address,city) VALUES($1,$2,$3,$4,$5,$6) RETURNING *", [body.name, body.taxId ?? null, body.email ?? null, body.phone ?? null, body.address ?? null, body.city]);
   return reply.code(201).send(result.rows[0]);
 });

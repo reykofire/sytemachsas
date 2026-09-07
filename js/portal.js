@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
     catch (error) { hsToast(error.message); }
   }
   function organizationLabel(organization) {
-    return organization.name === "HardSystem" ? "Systemach (equipo interno)" : `${organization.name} (empresa cliente)`;
+    return organization.organization_type === "internal" ? "Systemach (equipo interno)" : `${organization.name} (empresa cliente)`;
   }
   function organizationOptions(selectedId) {
     return state.organizations.map(organization => `<option value="${organization.id}" ${organization.id === selectedId ? "selected" : ""}>${escapeHtml(organizationLabel(organization))}</option>`).join("");
