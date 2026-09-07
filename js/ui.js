@@ -1,5 +1,5 @@
 /* ============================================================
-   HardSystem — UI compartida
+   Systemach — UI compartida
    Inyección de header/footer, iconos SVG, formato y toasts.
    ============================================================ */
 
@@ -101,7 +101,7 @@ function hsRenderHeader(active) {
   header.innerHTML = `
     <div class="container header-inner">
       <a href="index.html" class="brand">
-        <img src="Logo/logoHS01.png" alt="HardSystem — Soluciones Tecnológicas">
+        <img src="Logo/logo-systemach.png" alt="Systemach — Soluciones Tecnológicas">
       </a>
       <nav class="main-nav" id="mainNav">
         ${nav}
@@ -131,7 +131,7 @@ function hsRenderFooter() {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="Logo/logoHS01.png" alt="HardSystem">
+          <img src="Logo/logo-systemach.png" alt="Systemach">
           <p>Soporte técnico y soluciones tecnológicas desde Barranquilla para hogares y empresas del Caribe colombiano.</p>
         </div>
         <div>
@@ -163,7 +163,7 @@ function hsRenderFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 HardSystem — Soluciones Tecnológicas. Barranquilla, Colombia.</span>
+        <span>© 2026 Systemach — Soluciones Tecnológicas. Barranquilla, Colombia.</span>
         <span>Precios en pesos colombianos (COP) · Datos simulados.</span>
       </div>
     </div>`;

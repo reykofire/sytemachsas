@@ -1,5 +1,5 @@
 /* ============================================================
-   HardSystem — Datos simulados (mock)
+   Systemach — Datos simulados (mock)
    Punto único de verdad para productos, tickets, equipos e
    inventario. Preparado para sustituirse por llamadas a API.
    ============================================================ */
@@ -9,10 +9,10 @@ const HS_DATA = {
   products: [
     { id: "P-001", name: "Laptop Empresarial HS Pro 14", category: "Equipos", price: 3599900, stock: 12, icon: "laptop",
       desc: "Laptop de 14\" optimizada para entornos empresariales. Intel Core i5, 16 GB RAM, SSD NVMe 512 GB.",
-      specs: { Procesador: "Intel Core i5-1335U", Memoria: "16 GB DDR4", Almacenamiento: "SSD NVMe 512 GB", Pantalla: "14\" FHD IPS", Garantía: "12 meses HardSystem" } },
+      specs: { Procesador: "Intel Core i5-1335U", Memoria: "16 GB DDR4", Almacenamiento: "SSD NVMe 512 GB", Pantalla: "14\" FHD IPS", Garantía: "12 meses Systemach" } },
     { id: "P-002", name: "PC de Escritorio HS WorkStation", category: "Equipos", price: 2999900, stock: 8, icon: "desktop",
-      desc: "Equipo de escritorio ensamblado por HardSystem para oficina y diseño ligero. Ryzen 5, 16 GB RAM, SSD 1 TB.",
-      specs: { Procesador: "AMD Ryzen 5 5600", Memoria: "16 GB DDR4", Almacenamiento: "SSD 1 TB", Gráficos: "Integrados Radeon", Garantía: "12 meses HardSystem" } },
+      desc: "Equipo de escritorio ensamblado por Systemach para oficina y diseño ligero. Ryzen 5, 16 GB RAM, SSD 1 TB.",
+      specs: { Procesador: "AMD Ryzen 5 5600", Memoria: "16 GB DDR4", Almacenamiento: "SSD 1 TB", Gráficos: "Integrados Radeon", Garantía: "12 meses Systemach" } },
     { id: "P-003", name: "Monitor LED 24\" Full HD", category: "Periféricos", price: 519900, stock: 25, icon: "monitor",
       desc: "Monitor 24\" IPS Full HD con marco ultrafino, ideal para estaciones de trabajo y doble pantalla.",
       specs: { Tamaño: "24 pulgadas", Resolución: "1920 × 1080", Panel: "IPS 75 Hz", Conectores: "HDMI + VGA", Garantía: "12 meses" } },

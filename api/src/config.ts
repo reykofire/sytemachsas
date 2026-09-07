@@ -13,7 +13,7 @@ const schema = z.object({
   SMTP_SECURE: z.string().default("true").transform(value => value !== "false"),
   SMTP_USER: z.string().email().default("ziiihelpdesk@gmail.com"),
   SMTP_PASS: z.string().optional(),
-  SMTP_FROM: z.string().default("HardSystem <ziiihelpdesk@gmail.com>"),
+  SMTP_FROM: z.string().default("Systemach <ziiihelpdesk@gmail.com>"),
   PORTAL_URL: z.string().url().default("http://192.168.100.68:8080/portal.html"),
   PAYPAL_MODE: z.enum(["sandbox", "live"]).default("sandbox"),
   PAYPAL_CLIENT_ID: z.preprocess(value => value === "" ? undefined : value, z.string().min(10).optional()),

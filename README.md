@@ -8,7 +8,7 @@ Copia funcional completa de HardSystem, preparada como base para la identidad de
 - Proyecto Docker Compose: `systemach`.
 - HardSystem permanece en el puerto 8080, con sus propios contenedores y vol?menes.
 
-La copia conserva la interfaz original, todas las funciones, usuarios, contrase?as de aplicaci?n, datos, adjuntos e integraciones. Los cambios visuales de Systemach se realizan a partir de esta base. Los ajustes iniciales son el nombre del proyecto, las etiquetas de las im?genes, el puerto HTTP 8081, el puerto opcional de Mailpit 8026 y la URL del portal.
+La copia conserva todas las funciones, usuarios, contrase?as de aplicaci?n, datos, adjuntos e integraciones. La interfaz, los correos y los reportes incorporan el logo y la marca Systemach, con acentos azules. Los ajustes iniciales son el nombre del proyecto, las etiquetas de las im?genes, el puerto HTTP 8081, el puerto opcional de Mailpit 8026 y la URL del portal.
 
 ## Qu? contiene la copia
 
@@ -50,7 +50,7 @@ Un `git clone` por s? solo permite obtener el c?digo, pero la recuperaci?n exact
 
 ## Desarrollo de marca
 
-Los recursos web est?n en `*.html`, `css/`, `js/`, `Logo/` y `slide/`. Los correos y reportes tambi?n incluyen marca en `api/src/`. El primer despliegue reutiliza las im?genes exactas para conservar la funcionalidad; despu?s de editar el c?digo, reconstruye ?nicamente el proyecto Systemach:
+Los recursos web est?n en `*.html`, `css/`, `js/`, `Logo/` y `slide/`. Los correos y reportes tambi?n incluyen marca en `api/src/`. El respaldo inicial conserva las im?genes originales. La versi?n actual incorpora la marca Systemach; despu?s de editar el c?digo, reconstruye ?nicamente el proyecto Systemach:
 
 ```bash
 cd /opt/systemach
@@ -69,3 +69,7 @@ El 7 de septiembre de 2026 se comprob?:
 - API, PostgreSQL y respaldos de Systemach saludables, con un nuevo respaldo generado.
 
 Se verific? una copia funcional sin efectuar cobros ni enviar correos de prueba. La documentaci?n heredada est? en `docs/HARDSYSTEM-ORIGINAL.md`; sus direcciones antiguas describen el origen.
+
+## Logo de Systemach
+
+Se utiliza sin modificar el PNG proporcionado por el propietario: [archivo original](https://irp.cdn-website.com/b346fc32/dms3rep/multi/opt/Logo+Color+PNG-181w.png). Resoluci?n original: 180 ? 139 p?xeles. `Logo/logo-systemach.png` es el recurso principal; `logoHS01.png` conserva compatibilidad con referencias previas. Las credenciales y datos de contacto existentes se mantienen.

@@ -1,5 +1,5 @@
 /* ============================================================
-   HardSystem — Inicializadores por página
+   Systemach — Inicializadores por página
    Cada página define <body data-page="..."> y aquí se despacha.
    ============================================================ */
 
@@ -48,7 +48,7 @@ function initHome() {
 
   // Testimonios
   const testimonials = [
-    { name: "Comercial Andina", role: "Cliente empresarial", text: "HardSystem administra todo nuestro parque de equipos. El portal de tickets nos da visibilidad total de cada servicio." },
+    { name: "Comercial Andina", role: "Cliente empresarial", text: "Systemach administra todo nuestro parque de equipos. El portal de tickets nos da visibilidad total de cada servicio." },
     { name: "María González", role: "Cliente hogar", text: "Recuperaron los datos de mi disco dañado cuando otros dijeron que era imposible. Atención clara y precios justos." },
     { name: "Farmacia del Sol", role: "Cliente empresarial", text: "Instalaron las cámaras y la red de nuestras dos sucursales. Trabajo limpio, rápido y con garantía real." },
   ];
@@ -162,7 +162,7 @@ function initProducto() {
   const id = new URLSearchParams(location.search).get("id");
   const p = HS_DATA.products.find(x => x.id === id) || HS_DATA.products[0];
   const avail = hsAvailability(p.stock);
-  document.title = `${p.name} — HardSystem`;
+  document.title = `${p.name} — Systemach`;
 
   document.getElementById("breadcrumbCurrent").textContent = p.name;
   const wrap = document.getElementById("productDetail");
@@ -260,7 +260,7 @@ function initCarrito() {
     status.textContent = "Preparando el pago seguro...";
     try {
       const config = await HS_API.request("/payments/paypal/config");
-      if (!config.enabled) throw new Error("PayPal está pendiente de activación por HardSystem");
+      if (!config.enabled) throw new Error("PayPal está pendiente de activación por Systemach");
       const totalCop = HS_CART.subtotal() + shippingCop();
       const amountUsd = (totalCop / config.copPerUsd).toLocaleString("en-US", { style: "currency", currency: "USD" });
       document.getElementById("paypalConversion").innerHTML = `<strong>Total en PayPal: ${amountUsd} USD</strong><span>Tasa aplicada: $ ${Number(config.copPerUsd).toLocaleString("es-CO")} COP por USD</span>`;

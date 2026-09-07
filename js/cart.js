@@ -1,5 +1,5 @@
 /* ============================================================
-   HardSystem — Carrito de compras (frontend, localStorage)
+   Systemach — Carrito de compras (frontend, localStorage)
    API: HS_CART.get / add / setQty / remove / clear / count / total
    Preparado para conectarse a backend + pasarela de pago.
    ============================================================ */

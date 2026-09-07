@@ -55,7 +55,7 @@ services:
       SMTP_SECURE: ${SMTP_SECURE:-true}
       SMTP_USER: ${SMTP_USER:-ziiihelpdesk@gmail.com}
       SMTP_PASS: ${SMTP_PASS:-}
-      SMTP_FROM: ${SMTP_FROM:-HardSystem <ziiihelpdesk@gmail.com>}
+      SMTP_FROM: ${SMTP_FROM:-Systemach <ziiihelpdesk@gmail.com>}
       PORTAL_URL: ${PORTAL_URL:-http://192.168.100.141:8081/portal.html}
       PAYPAL_MODE: ${PAYPAL_MODE:-sandbox}
       PAYPAL_CLIENT_ID: ${PAYPAL_CLIENT_ID:-}

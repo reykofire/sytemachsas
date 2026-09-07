@@ -19,7 +19,7 @@ RUN npm ci --omit=dev && npm cache clean --force \
 
 COPY --from=build /app/dist ./dist
 COPY db/migrations ./migrations
-COPY Logo/logoHS01.png ./Logo/logoHS01.png
+COPY Logo ./Logo
 
 RUN mkdir -p /app/storage && chown node:node /app/storage
 
