@@ -149,7 +149,7 @@ const HS_DATA = {
 
 async function hsLoadCommerce() {
   try {
-    const response = await fetch("/api/commerce");
+    const response = await fetch(HS_APP.url("api/commerce"));
     if (!response.ok) return;
     const commerce = await response.json();
     HS_DATA.promotions = commerce.promotions || [];

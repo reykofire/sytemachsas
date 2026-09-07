@@ -1,5 +1,5 @@
 const HS_API = (() => {
-  const TOKEN_KEY = "hs_session_v1";
+  const TOKEN_KEY = HS_APP.key("hs_session_v1");
   const getToken = () => sessionStorage.getItem(TOKEN_KEY);
   const setToken = token => token ? sessionStorage.setItem(TOKEN_KEY, token) : sessionStorage.removeItem(TOKEN_KEY);
   const getSessionUser = () => {
@@ -21,7 +21,7 @@ const HS_API = (() => {
     if (!(options.body instanceof FormData)) headers["Content-Type"] = "application/json";
     const token = getToken();
     if (token) headers.Authorization = `Bearer ${token}`;
-    const response = await fetch(`/api${path}`, { ...options, headers });
+    const response = await fetch(`${HS_APP.apiBase}${path}`, { ...options, headers });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
       if (response.status === 401) setToken(null);
@@ -36,7 +36,7 @@ const HS_API = (() => {
     const headers = {};
     const token = getToken();
     if (token) headers.Authorization = `Bearer ${token}`;
-    const response = await fetch(`/api${path}`, { headers });
+    const response = await fetch(`${HS_APP.apiBase}${path}`, { headers });
     if (!response.ok) throw new Error(errorMessage);
     return response.blob();
   }

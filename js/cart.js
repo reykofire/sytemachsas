@@ -5,8 +5,8 @@
    ============================================================ */
 
 const HS_CART = (() => {
-  const KEY = "hs_cart_v1";
-  const PENDING_PREFIX = "hs_cart_pending_v1:";
+  const KEY = HS_APP.key("hs_cart_v1");
+  const PENDING_PREFIX = HS_APP.key("hs_cart_pending_v1") + ":";
   let remoteItems = null;
   let revision = 0;
   let persistence = Promise.resolve();

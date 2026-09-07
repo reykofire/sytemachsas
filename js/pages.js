@@ -248,7 +248,7 @@ function initCarrito() {
 
   async function startPayPal() {
     if (!HS_API.getSessionUser()) {
-      sessionStorage.setItem("hs_return_to", "carrito.html?checkout=paypal");
+      sessionStorage.setItem(HS_APP.key("hs_return_to"), "carrito.html?checkout=paypal");
       location.href = "portal.html";
       return;
     }
@@ -591,7 +591,7 @@ function initTabs(tabsId, panelPrefix) {
 
 /* ==================== ADMINISTRACIÓN ==================== */
 function initAdmin() {
-  const KEY = "hs_admin_products_co_v2";
+  const KEY = HS_APP.key("hs_admin_products_co_v2");
   let products;
   try { products = JSON.parse(localStorage.getItem(KEY)) || [...HS_DATA.products]; }
   catch { products = [...HS_DATA.products]; }

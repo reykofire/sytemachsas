@@ -56,7 +56,7 @@ function hsEscapeHtml(value) {
 }
 function hsSafeUrl(value, fallback = "#") {
   try {
-    const url = new URL(String(value ?? ""), location.origin);
+    const url = new URL(HS_APP.url(value));
     return ["http:", "https:"].includes(url.protocol) ? url.href : fallback;
   } catch { return fallback; }
 }
